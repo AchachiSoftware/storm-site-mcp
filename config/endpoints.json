@@ -1,0 +1,20 @@
+{
+  "list_plans": {
+    "method": "GET",
+    "path": "/shop/plans/my",
+    "description": "Fetch all plans with pagination",
+    "example_params": { "page": 0, "size": 10, "sort": "id,asc" }
+  },
+  "list_prices": {
+    "method": "GET",
+    "path": "/shop/prices/my",
+    "description": "Fetch prices for a given plan",
+    "example_params": { "planId": 123 }
+  },
+  "update_price": {
+    "method": "PUT",
+    "path": "/shop/prices/{priceId}",
+    "description": "Update promo discount percent for a price entry",
+    "example_params": {}
+  }
+}
