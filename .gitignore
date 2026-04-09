@@ -4,3 +4,4 @@ har/
 __pycache__/
 *.pyc
 *.pyo
+/.idea
