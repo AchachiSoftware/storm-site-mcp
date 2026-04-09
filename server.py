@@ -9,6 +9,7 @@ from mcp.server.fastmcp import FastMCP
 # ── Config ────────────────────────────────────────────────────────────────────
 TOKEN = os.environ["STORM_TOKEN"]
 BASE = "https://storm-client.net/api"
+BASE_API = "https://api.storm-client.net"
 CONFIG_DIR = Path(os.environ.get("CONFIG_DIR", "/app/config"))
 HAR_DIR = Path(os.environ.get("HAR_DIR", "/app/har"))
 REGISTRY_FILE = CONFIG_DIR / "endpoints.json"
@@ -26,9 +27,10 @@ mcp = FastMCP("storm-client")
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 def _api(method: str, path: str, *, params=None, json_body=None) -> dict:
+    url = path if path.startswith("http") else f"{BASE}{path}"
     resp = requests.request(
         method.upper(),
-        f"{BASE}{path}",
+        url,
         headers=HEADERS,
         cookies=COOKIES,
         params=params,
@@ -91,7 +93,8 @@ def call_endpoint(method: str, path: str, params: str = "", body: str = "") -> s
     Call any API path directly. Useful for exploring undocumented endpoints.
 
     method: GET | POST | PUT | DELETE | PATCH
-    path:   relative to base URL, e.g. /shop/plans/my
+    path:   relative to base URL (e.g. /shop/plans/my) OR a full URL
+            (e.g. https://api.storm-client.net/plugin-repos/73)
     params: optional JSON string of query params, e.g. '{"page": 0, "size": 10}'
     body:   optional JSON string of request body
     """

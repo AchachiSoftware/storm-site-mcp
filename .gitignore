@@ -1,4 +1,5 @@
 .env
+.mcp.json
 har/
 __pycache__/
 *.pyc

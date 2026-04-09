@@ -3,18 +3,103 @@
     "method": "GET",
     "path": "/shop/plans/my",
     "description": "Fetch all plans with pagination",
-    "example_params": { "page": 0, "size": 10, "sort": "id,asc" }
+    "example_params": {
+      "page": 0,
+      "size": 10,
+      "sort": "id,asc"
+    }
   },
   "list_prices": {
     "method": "GET",
     "path": "/shop/prices/my",
     "description": "Fetch prices for a given plan",
-    "example_params": { "planId": 123 }
+    "example_params": {
+      "planId": 123
+    }
   },
   "update_price": {
     "method": "PUT",
     "path": "/shop/prices/{priceId}",
     "description": "Update promo discount percent for a price entry",
     "example_params": {}
+  },
+  "get_plan": {
+    "method": "GET",
+    "path": "/shop/plans/{id}",
+    "description": "Get a single plan by ID. Returns full plan object including name, description, imageUrl, enabled, hidden, labels, tags, priority, subCount.",
+    "example_params": {
+      "id": 30
+    }
+  },
+  "list_my_subscriptions": {
+    "method": "GET",
+    "path": "/shop/subscriptions/my",
+    "description": "List your own subscriptions as a customer (plans you are subscribed to). Paginated. Returns planId, priceId, planName, priceName, startDate, expireDate, expired, subscriptionPeriod, purchasePrice.",
+    "example_params": {
+      "page": 0,
+      "size": 10
+    }
+  },
+  "list_plugin_repos": {
+    "method": "GET",
+    "path": "https://api.storm-client.net/plugin-repos",
+    "description": "List all plugin repositories for your developer account. Returns array of {id, url, developer}. Can filter by ?developer=655.",
+    "example_params": {
+      "developer": 655
+    }
+  },
+  "get_plugin_repo": {
+    "method": "GET",
+    "path": "https://api.storm-client.net/plugin-repos/{id}",
+    "description": "Get a single plugin repository by ID. Returns {id, url, developer}. e.g. id=73 \u2192 achachi/storm2plugins, id=112 \u2192 AchachiSoftware/storm2plugins.",
+    "example_params": {
+      "id": 73
+    }
+  },
+  "list_plugins_by_repo": {
+    "method": "GET",
+    "path": "https://api.storm-client.net/plugins/by-repo/{repoId}",
+    "description": "List all plugins in a given repository. Returns paginated content with {id, name, description, version, hash, developer}.",
+    "example_params": {
+      "repoId": 73
+    }
+  },
+  "get_plugin": {
+    "method": "GET",
+    "path": "https://api.storm-client.net/plugins/{id}",
+    "description": "Get a single plugin by ID. Returns {id, name, description, version, hash, developer}.",
+    "example_params": {
+      "id": 1177
+    }
+  },
+  "list_plugin_links_by_price": {
+    "method": "GET",
+    "path": "/shop/plugin-links/by-price/{priceId}",
+    "description": "List all plugins linked to a price. Returns [{id, priceId, pluginId, name, description, sessionLimit, repoUrl}]. This shows which plugins are included with a given price tier.",
+    "example_params": {
+      "priceId": 10
+    }
+  },
+  "create_plugin_link": {
+    "method": "POST",
+    "path": "/shop/plugin-links",
+    "description": "Link a plugin to a price. POST body likely contains priceId and pluginId.",
+    "example_params": {}
+  },
+  "delete_plugin_link": {
+    "method": "DELETE",
+    "path": "/shop/plugin-links/{linkId}",
+    "description": "Remove a plugin from a price by deleting the link entry. linkId is the id field from list_plugin_links_by_price.",
+    "example_params": {
+      "linkId": 4112
+    }
+  },
+  "delete_plugin": {
+    "method": "DELETE",
+    "path": "https://api.storm-client.net/plugins/{id}",
+    "description": "Delete a plugin by ID from the plugin repository. Use with caution.",
+    "example_params": {
+      "id": 1177
+    }
   }
 }
