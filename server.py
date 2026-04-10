@@ -144,7 +144,9 @@ def import_har(filename: str) -> str:
     the filename (e.g. 'storm-client.har'). Only storm-client.net/api requests are kept.
     Duplicate entries are skipped automatically.
     """
-    har_path = HAR_DIR / filename
+    har_path = (HAR_DIR / filename).resolve()
+    if not har_path.is_relative_to(HAR_DIR.resolve()):
+        return "Invalid filename: must be a plain filename inside the har/ directory."
     if not har_path.exists():
         return f"File not found: {har_path}\nDrop the HAR file into the project har/ directory first."
 

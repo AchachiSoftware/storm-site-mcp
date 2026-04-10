@@ -1,3 +1,15 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=alert_status&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=bugs&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=code_smells&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=coverage&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=duplicated_lines_density&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=ncloc&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=reliability_rating&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=security_rating&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=sqale_index&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=sqale_rating&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=vulnerabilities&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp)
+
 # Storm Client MCP
 
 A [Model Context Protocol](https://modelcontextprotocol.io/) server for [Storm-client.net](https://storm-client.net) developers. Lets you manage your plans, prices, plugins, and plugin links through an AI assistant like Claude.
