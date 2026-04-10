@@ -178,7 +178,7 @@ def import_har(filename: str) -> str:
         registry[name] = {
             "method": method.upper(),
             "path": path,
-            "description": f"Discovered via HAR import",
+            "description": "Discovered via HAR import",
             "example_params": example_params,
         }
         added.append(f"{method} {path}")

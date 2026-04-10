@@ -18,7 +18,7 @@ A [Model Context Protocol](https://modelcontextprotocol.io/) server for [Storm-c
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/ben93riggs/storm-site-mcp
+git clone https://github.com/AchachiSoftware/storm-site-mcp
 cd storm-site-mcp
 
 # 2. Create a virtual environment and install dependencies
