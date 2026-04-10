@@ -144,9 +144,11 @@ def import_har(filename: str) -> str:
     the filename (e.g. 'storm-client.har'). Only storm-client.net/api requests are kept.
     Duplicate entries are skipped automatically.
     """
-    har_path = HAR_DIR / Path(filename).name
-    if not har_path.exists():
-        return f"File not found: {har_path}\nDrop the HAR file into the project har/ directory first."
+    available = {f.name: f for f in HAR_DIR.iterdir() if f.is_file()}
+    if filename not in available:
+        listed = ", ".join(sorted(available)) or "none"
+        return f"File '{filename}' not found in har/ directory. Available: {listed}"
+    har_path = available[filename]
 
     har = json.loads(har_path.read_text())
     registry = _load_registry()
