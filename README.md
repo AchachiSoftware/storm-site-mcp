@@ -10,9 +10,9 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=sqale_rating&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp) \
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=AchachiSoftware_storm-site-mcp&metric=vulnerabilities&token=)](https://sonarcloud.io/summary/new_code?id=AchachiSoftware_storm-site-mcp)
 
-# Storm Client MCP
+# storm-client.net developer MCP
 
-A [Model Context Protocol](https://modelcontextprotocol.io/) server for [Storm-client.net](https://storm-client.net) developers. Lets you manage your plans, prices, plugins, and plugin links through an AI assistant like Claude.
+A [Model Context Protocol](https://modelcontextprotocol.io/) server for developers to interact with [Storm-client.net](https://storm-client.net). Lets you manage your plans, prices, plugins, and plugin links through an AI assistant like Claude.
 
 ## Prerequisites
 
