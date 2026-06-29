@@ -26,10 +26,22 @@
   "get_plan": {
     "method": "GET",
     "path": "/shop/plans/{id}",
-    "description": "Get a single plan by ID. Returns full plan object including name, description, imageUrl, enabled, hidden, labels, tags, priority, subCount.",
+    "description": "Get a single plan by ID. Returns full plan object including name, description, imageUrl, enabled, hidden, owner, ownerId, ownerName, labels, tags, priority.",
     "example_params": {
       "id": 30
     }
+  },
+  "exchange_token": {
+    "method": "POST",
+    "path": "https://api.storm-client.net/identity/token",
+    "description": "Exchange the read-only token cookie for a write-capable JWT. Send the raw token cookie value as the Authorization header (no 'Bearer' prefix). Returns {\"token\": \"<JWT>\"}, valid ~168h. Use the JWT as 'Authorization: Bearer <JWT>' for mutating calls.",
+    "example_params": {}
+  },
+  "update_plan_field": {
+    "method": "PUT",
+    "path": "/shop/plans/{id}",
+    "description": "Partial single-field update of a plan you own. Body is {\"id\": <id>, <field>: <value>}; editable fields are description, imageUrl, name, tags (note: priority is accepted with 204 but silently ignored). Requires the JWT bearer (writes). Returns 204 on success.",
+    "example_params": {}
   },
   "list_my_subscriptions": {
     "method": "GET",
@@ -101,5 +113,25 @@
     "example_params": {
       "id": 1177
     }
+  },
+  "list_plan_blacklist": {
+    "method": "GET",
+    "path": "/shop/plans/{id}/blacklist",
+    "description": "List users blacklisted from a plan (id, discordId, username, enabled). Requires JWT auth.",
+    "example_params": {}
+  },
+  "blacklist_user": {
+    "method": "POST",
+    "path": "/shop/plans/{id}/blacklist",
+    "description": "Blacklist a user from a plan by Discord ID. discordId passed as a query param; unknown ids 404. Returns 204.",
+    "example_params": {
+      "discordId": "461505270393339907"
+    }
+  },
+  "unblacklist_user": {
+    "method": "DELETE",
+    "path": "/shop/plans/{id}/blacklist/{entryId}",
+    "description": "Remove a blacklist entry by its entry id (from list_plan_blacklist). Returns 204.",
+    "example_params": {}
   }
 }

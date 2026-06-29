@@ -29,6 +29,12 @@ A [Model Context Protocol](https://modelcontextprotocol.io/) server for develope
 2. Open browser DevTools → **Application** → **Cookies** → `storm-client.net`
 3. Copy the value of the `token` cookie — this is your bearer token
 
+> **Note:** the `token` cookie is **read-only** — it authenticates GETs, but mutating
+> calls (e.g. editing a plan) return `403` with it. You don't need to do anything extra:
+> for write operations the server automatically exchanges the cookie for a short-lived
+> JWT (via `POST /identity/token`) and caches it, refreshing before it expires. Just keep
+> `STORM_TOKEN` set to your cookie value.
+
 ## Setup
 
 ```bash
@@ -82,8 +88,13 @@ docker run -e STORM_TOKEN=your_token_here \
 | Tool | Description |
 |---|---|
 | `list_plans` | List all your plans (paginated automatically) |
+| `list_my_plans` | Enumerate every plan you own, **including hidden ones** |
 | `list_prices` | List prices for a given plan ID |
 | `update_price` | Set a promo discount percent (0–100) on a price |
+| `update_plan_field` | Edit a single plan field (`description`, `imageUrl`, `name`, `tags`) |
+| `list_plan_blacklist` | List the users blacklisted from a plan |
+| `blacklist_user` | Blacklist a user by Discord ID from one plan, or all your plans |
+| `unblacklist_user` | Remove a user's blacklist entry from one plan, or all your plans |
 | `call_endpoint` | Call any API path directly — useful for exploration. Accepts a relative path (e.g. `/shop/plans/my`) or a full URL (e.g. `https://api.storm-client.net/plugin-repos`) |
 | `register_endpoint` | Save a discovered endpoint to the local registry |
 | `list_registered_endpoints` | Show all saved endpoints |
